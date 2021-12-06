@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Badge } from 'native-ba
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/noback'
-import Button from '_components/buttons'
-import ButtonFill from '_components/buttons/fill'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice, getTotalTransaction, getProvitTransaction } from '_utils/Global'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/noback'
+import Button from '../../components/buttons'
+import ButtonFill from '../../components/buttons/fill'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice, getTotalTransaction, getProvitTransaction } from '../../utils/Global'
 import Moment from 'moment'
 import RNFetchBlob from 'rn-fetch-blob'
 import { server_api } from '_configs/env'
@@ -172,7 +172,7 @@ export default class ProductStatus extends Component {
           <View style={[styles.container_form, { borderBottomWidth: 9, borderBottomColor: '#F0F0F0', alignItems: "center" }]}>
             <Row style={{height: 75}}>
               <Col size={4} style={{alignItems: "flex-start", justifyContent: "center"}}>
-                <Image style={{ width: 75, height: 85, resizeMode: "contain", marginBottom: 10 }} source={require('_assets/images/success.png')} />
+                <Image style={{ width: 75, height: 85, resizeMode: "contain", marginBottom: 10 }} source={require('../../assets/images/success.png')} />
               </Col>
               <Col size={10} style={{alignItems: "flex-start", justifyContent: "center"}}>
                 <Text style={[styles.titleBoldGreen, { marginBottom: 5, textAlign: "left" }]}>Pembayaran Berhasil</Text>

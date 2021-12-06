@@ -4,13 +4,13 @@ import { Grid, Col, Form, Item, Input, Label, Icon } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import ImagePicker from 'react-native-image-picker'
 import RNFetchBlob from 'rn-fetch-blob'
 import { server_api } from '_configs/env'
-import { POST, GET } from '_services/ApiServices'
+import { POST, GET } from '../../services/ApiServices'
 
 export default class Register extends Component {
   _isMounted = false
@@ -165,7 +165,7 @@ export default class Register extends Component {
             {
               this.state.photo.uri == null || this.state.photo.uri == '' || typeof this.state.photo.uri === 'undefined' ? 
               <TouchableOpacity onPress={() => this.changeFoto()}>
-                <Image style={styles.avatar} source={require('_assets/images/default-user.png')}/>
+                <Image style={styles.avatar} source={require('../../assets/images/default-user.png')}/>
               </TouchableOpacity>
               : 
               <TouchableOpacity onPress={() => this.changeFoto()}>

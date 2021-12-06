@@ -3,12 +3,12 @@ import { StyleSheet, AsyncStorage, StatusBar, Text, View, ScrollView, TouchableO
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import CodeInput from 'react-native-confirmation-code-input'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile } from '../../utils/Global'
 
 export default class Login extends Component {
   _isMounted = false

@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Spinner } from 'native-
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class Print extends Component {
   _isMounted = false
@@ -105,7 +105,7 @@ export default class Print extends Component {
                         <TouchableOpacity key={key2} onPress={() => Actions.history_detail({ detail: unit })}>
                           <Row style={{borderWidth: 1, borderColor: '#ccc', borderRadius: 10, marginBottom: 10, paddingBottom: 10, paddingTop: 10}}>
                             <Col size={2} style={{justifyContent: "center", alignItems: "center"}}>
-                              <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                              <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                             </Col>
                             <Col size={6} style={{justifyContent: "center"}}>
                               <Text style={[styles.titleBoldBlack]}>{unit.ref_id_TP}</Text>

@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Spinner } from 'native-
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import Button from '_components/buttons'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import Button from '../../components/buttons'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 import Pusher from 'pusher-js/react-native'
 import { server_api } from '_configs/env'
 
@@ -150,7 +150,7 @@ export default class Chat extends Component {
             </View>
             <View style={styles.columnBottomRight}>
               <TouchableOpacity disabled={this.state.loading} onPress={() => this.sendChat()}>
-                <Image style={styles.button} source={require('_assets/images/button-chat.png')}/>
+                <Image style={styles.button} source={require('../../assets/images/button-chat.png')}/>
               </TouchableOpacity>
             </View>
           </View>

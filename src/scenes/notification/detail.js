@@ -4,13 +4,14 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import Button from '_components/buttons'
-import ButtonFill from '_components/buttons/fill'
-import HeaderBack from '_headers/back'
+import Colors from '../../styles/colors'
+import Typography from '../../styles/typography'
+import Button from '../../components/buttons/index'
+import ButtonFill from '../../components/buttons/fill'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import ApiServices from '../../services/ApiServices'
+import global from '../../utils/Global'
 
 export default class Reward extends Component {
   _isMounted = false
@@ -27,13 +28,13 @@ export default class Reward extends Component {
     this._isMounted = true
 
     // GET USER
-    await getProfile().then((item) => {
+    await global.getProfile().then((item) => {
       this.setState({ userdata: item })
     })
   }
 
   async submit() {
-    await POST('tukar/poin', {
+    await ApiServices.POST('tukar/poin', {
       users_id: this.state.userdata.id,
       reward_id: this.props.item.id
     }, true).then(async (result) => {

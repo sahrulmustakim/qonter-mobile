@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Animated, TouchableOpacity, Text, Dimensions, View } from 'react-native'
-import { Colors, Typography } from '_styles'
+import Colors from '../../styles/colors'
+import Typography from '../../styles/typography'
 import { UIActivityIndicator } from 'react-native-indicators'
 
 export default class buttonColor extends Component {

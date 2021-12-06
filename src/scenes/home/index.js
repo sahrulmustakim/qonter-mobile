@@ -39,9 +39,9 @@ export default class Home extends Component {
   async componentDidMount() {
     const inet = await NetInfo.fetch()
     this.setState({ isConnected: inet.isConnected })
-    console.log(inet)
+    // console.log(inet)
 
-    if(inet.isConnected){
+    // if(inet.isConnected){
       // GET USER
       await global.getProfile().then((item) => {
         this.setState({ userdata: item })
@@ -75,17 +75,18 @@ export default class Home extends Component {
           this.setState({ dompet_status: result.user[0].paylaters.status })
         }
       }).catch(async (error) => {
+        console.log(JSON.stringify(error))
         this.refs.toast_error.show('Silahkan periksa koneksi Anda', 3000)
-        setTimeout(() => {
-          BackHandler.exitApp()
-        }, 3000);
+        // setTimeout(() => {
+        //   BackHandler.exitApp()
+        // }, 3000);
       })
-    }else{
-      this.refs.toast_error.show('Silahkan periksa koneksi Anda', 3000)
-      setTimeout(() => {
-        BackHandler.exitApp()
-      }, 3000);
-    }
+    // }else{
+    //   this.refs.toast_error.show('Silahkan periksa koneksi Anda', 3000)
+    //   // setTimeout(() => {
+    //   //   BackHandler.exitApp()
+    //   // }, 3000);
+    // }
 
     // PRODUCTS
     await ApiServices.GET('menu', {}, true).then(async (result) => {
@@ -165,55 +166,55 @@ export default class Home extends Component {
     Actions.refresh({key: Moment.utc().format('YYYYMMDDhhmmss')})
   }
 
-  // displayProducts() {
-  //   let arr = this.state.products.reduce((acc, item, idx) => {
-  //     let group = acc.pop();
-  //     if (group.length == this.state.productsRow) {
-  //       acc.push(group);
-  //       group = [];
-  //     }
-  //     group.push(item);
-  //     acc.push(group);
-  //     return acc;
-  //   }, [[]]);
+  displayProducts() {
+    let arr = this.state.products.reduce((acc, item, idx) => {
+      let group = acc.pop();
+      if (group.length == this.state.productsRow) {
+        acc.push(group);
+        group = [];
+      }
+      group.push(item);
+      acc.push(group);
+      return acc;
+    }, [[]]);
 
-  //   return arr.map((item, index) => {
-  //     return (
-  //       <Row key={index}>
-  //         { item.map(
-  //           (data, subindex) => 
-  //             <Col key={subindex} style={{alignItems: "center", alignContent: "center"}}>
-  //               {
-  //                 (data.type == 'prepaid' || data.type == 'postpaid') ? 
-  //                   <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_request({ product: data })}>
-  //                     <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
-  //                     <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10}}>{data.name}</Text>
-  //                   </TouchableOpacity>
-  //                 : false
-  //               }
-  //               {
-  //                 (data.type == 'transfer') ? 
-  //                   <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_transfer_request({ product: data })}>
-  //                     <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
-  //                     <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10}}>{data.name}</Text>
-  //                   </TouchableOpacity>
-  //                 : false
-  //               }
-  //               {
-  //                 (data.type == 'external') ? 
-  //                   <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_external({ product: data })}>
-  //                     <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
-  //                     <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10}}>{data.name}</Text>
-  //                   </TouchableOpacity>
-  //                 : false
-  //               }
-  //             </Col>
-  //           )
-  //         }
-  //       </Row>
-  //     );
-  //   });
-  // }
+    return arr.map((item, index) => {
+      return (
+        <HStack justifyContent="space-between" key={index}>
+          { item.map(
+            (data, subindex) => 
+              <Center w={{ base: '20%' }} key={subindex} style={{alignItems: "center", alignContent: "center", marginTop: 10}}>
+                {
+                  (data.type == 'prepaid' || data.type == 'postpaid') ? 
+                    <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_request({ product: data })}>
+                      <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
+                      <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10, height: 50}}>{data.name}</Text>
+                    </TouchableOpacity>
+                  : false
+                }
+                {
+                  (data.type == 'transfer') ? 
+                    <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_transfer_request({ product: data })}>
+                      <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
+                      <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10, height: 50}}>{data.name}</Text>
+                    </TouchableOpacity>
+                  : false
+                }
+                {
+                  (data.type == 'external') ? 
+                    <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => (data.route == '') ? false : Actions.product_external({ product: data })}>
+                      <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={{uri: data.icon}} />
+                      <Text style={{textAlign: "center", paddingTop: 10, marginBottom: 10, height: 50}}>{data.name}</Text>
+                    </TouchableOpacity>
+                  : false
+                }
+              </Center>
+            )
+          }
+        </HStack>
+      );
+    });
+  }
 
   renderBanner(item, index) {
     return (
@@ -237,31 +238,96 @@ export default class Home extends Component {
               onRefresh={this._onRefresh}
             />
           }
-          style={styles.container} 
+          style={[styles.container, {marginBottom: 60}]} 
           scrollEnabled={true}>
 
           <Slider sliders={this.state.sliders} />
 
-          {
-            (this.state.sliders.length > 0) ? 
-            <View style={{right: 0, width: '100%', alignItems: 'flex-end'}}>
-              <TouchableOpacity onPress={() => Actions.promo_list()}>
-                <HStack alignItems='flex-end'>
-                  <Text style={{color: Colors.PRIMARY, fontWeight: "bold"}}>Selengkapnya</Text>
-                  <Icon size="sm" as={
+          <View style={styles.boxSaldo}>
+            {
+              (this.state.userdata != null && this.state.userdata.role_id == 5) ? 
+              <HStack>
+                <Center w={{ base: '50%' }} style={{borderRightWidth: 1, borderRightColor: '#CFCFCF', paddingLeft: 3, paddingRight: 10}}>
+                  <TouchableOpacity onPress={() => Actions.wallet()}>
+                    <HStack>
+                      <Center w={{ base: '25%' }} style={{alignItems: "center", padding: 5}}>
+                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/cashin.png')} />
+                      </Center>
+                      <Center w={{ base: '87%' }} style={{paddingTop: 2, alignItems: 'flex-start'}}>
+                        <Text style={styles.labelBox}>Saldo</Text>
+                        <Text style={styles.labelPrice}>Rp {global.formatPrice(this.state.saldo)}</Text>
+                      </Center>
+                    </HStack>
+                  </TouchableOpacity>
+                </Center>
+                <Center w={{ base: '50%' }} style={{paddingLeft: 10, paddingRight: 10}}>
+                  <TouchableOpacity onPress={() => Actions.paylater()}>
+                    <HStack>
+                      <Center w={{ base: '25%' }} style={{alignItems: "center", padding: 5}}>
+                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/cashout.png')} />
+                      </Center>
+                      <Center w={{ base: '75%' }} style={{paddingTop: 2, alignItems: 'flex-start'}}>
+                        <Text style={styles.labelBox}>Dompet Abata</Text>
+                        <Text style={styles.labelPrice}>
+                          Rp {global.formatPrice(this.state.dompet)} {' '}
+                          {
+                            (this.state.dompet_status == 'false') ? 
+                            <Text style={{color: '#cc4b37', fontSize: 10, fontWeight: "bold"}}>Diblokir</Text>
+                            : false
+                          }
+                        </Text>
+                      </Center>
+                    </HStack>
+                  </TouchableOpacity>
+                </Center>
+              </HStack>
+              : 
+              <TouchableOpacity onPress={() => Actions.wallet()}>
+                <HStack>
+                  <Center w={{ base: '25%' }} style={{alignItems: "center", padding: 5}}>
+                    <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/cashin.png')} />
+                  </Center>
+                  <Center w={{ base: '75%' }} style={{paddingTop: 2, alignItems: 'flex-start'}}>
+                    <Text style={styles.labelBox}>Saldo</Text>
+                    <Text style={styles.labelPrice}>Rp {global.formatPrice(this.state.saldo)}</Text>
+                  </Center>
+                </HStack>
+              </TouchableOpacity>
+            }
+          </View>
+
+          <View style={{right: 0, width: '100%', alignItems: 'flex-end'}}>
+            <TouchableOpacity onPress={() => Actions.product_list()}>
+              <HStack alignItems='flex-end'>
+                <Text style={{color: Colors.PRIMARY, fontWeight: "bold"}}>Semua Produk</Text>
+                <Icon size="sm" as={
                     <MaterialIcons name='keyboard-arrow-right' />
                   } 
                   style={{
                     paddingTop: 4
                   }}
                   color={Colors.PRIMARY} />
-                </HStack>
-              </TouchableOpacity>
-            </View>
-            : false
-          }
+              </HStack>
+            </TouchableOpacity>
+          </View>
 
-          
+          <View style={{width: '100%', padding: 10}}>
+            { this.displayProducts() }
+          </View>
+
+          {
+            (this.state.info_covid.length > 0)
+            ?
+            <View style={{width: '100%', padding: 10}}>
+              <Text style={styles.title}>{this.state.info_covid[0].name}</Text>
+              <Text style={styles.subtitle}>{this.state.info_covid[0].description}</Text>
+              <Image style={styles.banner} source={{uri: this.state.info_covid[0].image}} />
+            </View>
+            :
+            <View style={{width: '100%', padding: 10}}>
+              <Text style={styles.titleBig}>Info Covid 19</Text>
+            </View>
+          }
 
         </ScrollView>
 
@@ -276,8 +342,7 @@ export default class Home extends Component {
 }
 
 const BannerWidth = Dimensions.get('window').width - 30
-const BannerHeight = 220
-
+const BannerHeight = 180
 const styles = StyleSheet.create({
   container : {
     flex: 1
@@ -304,10 +369,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   banner: { 
-    width: BannerWidth, 
+    width: BannerWidth,
     height: BannerHeight,
     marginBottom: 10,
-    resizeMode: "stretch" 
+    resizeMode: 'contain' 
   },
   container_form : {
     marginTop: 15,
@@ -316,11 +381,10 @@ const styles = StyleSheet.create({
     paddingBottom: 75
   },
   boxSaldo: {
-    marginTop: 15,
+    margin: 10,
     borderWidth: 1,
     borderColor: Colors.PRIMARY,
     borderRadius: 5,
-    width: '100%',
     padding: 7
   },
   labelBox: {

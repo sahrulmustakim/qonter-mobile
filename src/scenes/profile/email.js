@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Input, Label, Icon } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import Select2 from "react-native-select-two"
-import { POST, GET } from '_services/ApiServices'
-import { validateInput, getProfile } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { validateInput, getProfile } from '../../utils/Global'
 
 export default class Register extends Component {
   _isMounted = false

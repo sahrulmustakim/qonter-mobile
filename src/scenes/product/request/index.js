@@ -4,11 +4,11 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Picker, Row, Button } from '
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 import Modal from 'react-native-modal'
-import { getProfile, formatPrice } from '_utils/Global'
-import { POST, GET } from '_services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
+import { POST, GET } from '../../services/ApiServices'
 import Select2 from "react-native-select-two"
 
 export default class Wallet extends Component {
@@ -30,7 +30,7 @@ export default class Wallet extends Component {
       three: ['0895','0896','0897','0898','0899'],
       smartfren: ['0881','0882','0883','0884','0885','0886','0887','0888','0889'],
       ceria: ['0828'],
-      provider: require('_assets/images/icon-contact.png'),
+      provider: require('../../assets/images/icon-contact.png'),
       operator: null,
       operator_name: null,
       nominal: 0,
@@ -86,7 +86,7 @@ export default class Wallet extends Component {
     this._isMounted = false
 
     // DEFAULT VALUES
-    await this.setState({ provider: require('_assets/images/icon-contact.png') })
+    await this.setState({ provider: require('../../assets/images/icon-contact.png') })
     await this.setState({ operator: null })
     await this.setState({ operator_name: null })
     await this.setState({ items: [] })
@@ -107,7 +107,7 @@ export default class Wallet extends Component {
     await this.setState({ request: value })
 
     if(this.state.request.length < 4){
-      await this.setState({ provider: require('_assets/images/icon-contact.png') })
+      await this.setState({ provider: require('../../assets/images/icon-contact.png') })
       await this.setState({ operator: null })
       await this.setState({ operator_name: null })
       await this.setState({ items: [] })
@@ -118,7 +118,7 @@ export default class Wallet extends Component {
     if(this.state.request.length == 4){
       this.state.telkomsel.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-telkomsel.png') })
+          await this.setState({ provider: require('../../assets/images/icon-telkomsel.png') })
           await this.setState({ operator_name: 'Telkomsel' })
           const operator = this.search('telkomsel', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -129,7 +129,7 @@ export default class Wallet extends Component {
       
       this.state.indosat.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-indosat.png') })
+          await this.setState({ provider: require('../../assets/images/icon-indosat.png') })
           await this.setState({ operator_name: 'Indosat' })
           const operator = this.search('indosat', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -140,7 +140,7 @@ export default class Wallet extends Component {
       
       this.state.xl.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-xl.png') })
+          await this.setState({ provider: require('../../assets/images/icon-xl.png') })
           await this.setState({ operator_name: 'XL' })
           const operator = this.search('xl', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -151,7 +151,7 @@ export default class Wallet extends Component {
       
       this.state.axis.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-axis.png') })
+          await this.setState({ provider: require('../../assets/images/icon-axis.png') })
           await this.setState({ operator_name: 'AXIS' })
           const operator = this.search('axis', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -162,7 +162,7 @@ export default class Wallet extends Component {
       
       this.state.three.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-three.png') })
+          await this.setState({ provider: require('../../assets/images/icon-three.png') })
           await this.setState({ operator_name: 'Tri' })
           const operator = this.search('tri', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -173,7 +173,7 @@ export default class Wallet extends Component {
       
       this.state.smartfren.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-smartfren.png') })
+          await this.setState({ provider: require('../../assets/images/icon-smartfren.png') })
           await this.setState({ operator_name: 'Smart' })
           const operator = this.search('smart', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -184,7 +184,7 @@ export default class Wallet extends Component {
       
       this.state.ceria.map(async (item, index) => {
         if(this.state.request == item){
-          await this.setState({ provider: require('_assets/images/icon-ceria.png') })
+          await this.setState({ provider: require('../../assets/images/icon-ceria.png') })
           await this.setState({ operator_name: 'Ceria' })
           const operator = this.search('ceria', this.state.product_values)
           await this.setState({ operator: operator.id })
@@ -238,7 +238,7 @@ export default class Wallet extends Component {
                 <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => this.selectValue(value)}>
                   <Grid>
                     <Col size={2} style={{alignItems: "center", padding: 5, justifyContent: "center"}}>
-                      <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                      <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     </Col>
                     {
                       (this.props.product.type == 'prepaid') ? 

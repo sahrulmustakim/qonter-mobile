@@ -4,11 +4,11 @@ import { Grid, Col, Row, Icon, Button } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class Profile extends Component {
   _isMounted = false
@@ -64,7 +64,7 @@ export default class Profile extends Component {
           return (
             <Row key={index} style={styles.rowHistory}>
               <Col size={1} style={{justifyContent: "center", alignItems: "center"}}>
-                <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
               </Col>
               <Col size={11} style={{justifyContent: "flex-start"}}>
                 <Text style={styles.labelStatus}>Disetujui</Text>
@@ -93,7 +93,7 @@ export default class Profile extends Component {
           return (
             <Row key={index} style={styles.rowTagihan}>
               <Col size={1} style={{justifyContent: "center", alignItems: "center"}}>
-                <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
               </Col>
               <Col size={7} style={{justifyContent: "flex-start"}}>
                 <Grid style={{paddingLeft: 10, paddingRight: 10}}>
@@ -151,7 +151,7 @@ export default class Profile extends Component {
                 ?
                 <Image style={styles.imageSide} source={{uri: this.state.userdata.photo}}/>
                 :
-                <Image style={styles.imageSide} source={require('_assets/images/default-user.png')}/>
+                <Image style={styles.imageSide} source={require('../../assets/images/default-user.png')}/>
               }
             </Col>
             <Col size={5} style={{paddingLeft: 10}}>
@@ -204,7 +204,7 @@ export default class Profile extends Component {
                   <TouchableOpacity onPress={() => Actions.wallet()}>
                     <Grid>
                       <Col size={2} style={{alignItems: "center", padding: 5}}>
-                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('_assets/images/cashin.png')} />
+                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/cashin.png')} />
                       </Col>
                       <Col size={8} style={{paddingTop: 2}}>
                         <Text style={styles.labelBox}>Saldo</Text>
@@ -218,7 +218,7 @@ export default class Profile extends Component {
                   <TouchableOpacity onPress={() => Actions.paylater()}>
                     <Grid>
                       <Col size={2} style={{alignItems: "center", padding: 5}}>
-                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('_assets/images/cashout.png')} />
+                        <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/cashout.png')} />
                       </Col>
                       <Col size={8} style={{paddingTop: 2}}>
                         <Text style={styles.labelBox}>Qonter</Text>
@@ -240,7 +240,7 @@ export default class Profile extends Component {
                 { (this.state.userdata != null && this.state.userdata.role_id != 5) ?
                   <Col style={{borderRightWidth: 1, borderRightColor: '#CFCFCF', paddingTop: 5}}>
                     <TouchableOpacity style={{alignItems: "center", width: '100%'}} onPress={() => Actions.komisi_withdraw({detail: this.state.profile.komisi})}>
-                      <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                      <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                       <Text style={styles.labelCenter}>Komisi</Text>
                       <View style={styles.boxValue}>
                         <Text style={styles.valueCenter}>Rp{(typeof this.state.profile.komisi !== 'undefined' && this.state.profile.komisi != null) ? formatPrice(this.state.profile.komisi.amount) : 0}</Text>
@@ -251,7 +251,7 @@ export default class Profile extends Component {
                 { (this.state.userdata != null && this.state.userdata.role_id != 5 && this.state.userdata.role_id != 4) ?
                 <Col style={{borderRightWidth: 1, borderRightColor: '#CFCFCF', paddingTop: 5, alignItems: "center"}}>
                   <TouchableOpacity style={{alignItems: "center", width: '100%'}} onPress={() => Actions.sales_konter()}>
-                    <Image style={{ width: 38, height: 38, resizeMode: "contain" }} source={require('_assets/images/default-user.png')} />
+                    <Image style={{ width: 38, height: 38, resizeMode: "contain" }} source={require('../../assets/images/default-user.png')} />
                     <Text style={[styles.labelCenter, {paddingTop: 5}]}>Total Konter</Text>
                     <View style={styles.boxValue}>
                       <Text style={styles.valueCenter}>{(typeof this.state.profile.konter !== 'undefined' && this.state.profile.konter != null) ? this.state.profile.konter : 0}</Text>
@@ -261,7 +261,7 @@ export default class Profile extends Component {
                 : 
                 <Col style={{borderRightWidth: 1, borderRightColor: '#CFCFCF', paddingTop: 5, alignItems: "center"}}>
                   <TouchableOpacity style={{alignItems: "center", width: '100%'}} onPress={() => Actions.reward()}>
-                    <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                    <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     <Text style={styles.labelCenter}>Poin</Text>
                     <View style={styles.boxValue}>
                       <Text style={styles.valueCenter}>{(typeof this.state.profile.user[0].points !== 'undefined' && this.state.profile.user[0].points != null) ? this.state.profile.user[0].points.amount : 0}</Text>
@@ -271,7 +271,7 @@ export default class Profile extends Component {
                 }
                 <Col style={{paddingTop: 5, alignItems: "center"}}>
                   <TouchableOpacity style={{alignItems: "center", width: '100%'}} onPress={() => Actions.history()}>
-                    <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                    <Image style={{ width: 42, height: 42, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     <Text style={styles.labelCenter}>Total Transaksi</Text>
                     <View style={styles.boxValue}>
                       <Text style={styles.valueCenter}>{(typeof this.state.profile.user[0].transactions !== 'undefined' && this.state.profile.user[0].transactions != null) ? this.state.profile.user[0].transactions.length : 0}</Text>

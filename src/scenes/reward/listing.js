@@ -4,13 +4,13 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import Button from '_components/buttons'
-import ButtonColor from '_components/buttons/color'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import Button from '../../components/buttons'
+import ButtonColor from '../../components/buttons/color'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class Reward extends Component {
   _isMounted = false
@@ -54,7 +54,7 @@ export default class Reward extends Component {
                 return (
                   <Row key={key} style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', marginBottom: 5, paddingBottom: 10}}>
                     <Col size={2} style={{justifyContent: "flex-start", alignItems: "center"}}>
-                      <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={require('_assets/images/coupon.png')} />
+                      <Image style={{ width: 36, height: 36, resizeMode: "contain" }} source={require('../../assets/images/coupon.png')} />
                     </Col>
                     <Col size={7} style={{justifyContent: "center", paddingBottom: 5}}>
                       <Text style={[styles.title]}>{Moment(item.created_at).format('DD MMMM YYYY')}</Text>

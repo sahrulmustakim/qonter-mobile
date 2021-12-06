@@ -4,13 +4,13 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import Modal from 'react-native-modal'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class Wallet extends Component {
   _isMounted = false
@@ -32,18 +32,18 @@ export default class Wallet extends Component {
       methods: [{
         code: 'atm',
         title: 'ATM/Bank Transfer',
-        icon: require('_assets/images/ecard.png'),
+        icon: require('../../assets/images/ecard.png'),
         description: 'Bayar dari ATM Bersama, Prima, atau Alto',
         account_name: 'PT DOMPET ABATA (BANK BCA)',
-        account_icon: require('_assets/images/payment/bca.png'),
+        account_icon: require('../../assets/images/payment/bca.png'),
         account_number : '0352613514'
       },{
         code: 'va',
         title: 'BCA VA',
-        icon: require('_assets/images/payment/bca.png'),
+        icon: require('../../assets/images/payment/bca.png'),
         description: 'Bayar dengan Virtual Account BCA',
         account_name: 'BCA Virtual Account',
-        account_icon: require('_assets/images/payment/bca.png'),
+        account_icon: require('../../assets/images/payment/bca.png'),
         account_number : '215615616465459'
       }]
     }
@@ -189,7 +189,7 @@ export default class Wallet extends Component {
                 <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => this.setState({nominal: value})}>
                   <Grid>
                     <Col size={2} style={{alignItems: "center", padding: 5, justifyContent: "center"}}>
-                      <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                      <Image style={{ width: 34, height: 34, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     </Col>
                     <Col size={8} style={{justifyContent: "center"}}>
                       <Text style={(this.state.nominal == value) ? styles.labelItemActive : styles.labelItem}>{formatPrice(value)}</Text>

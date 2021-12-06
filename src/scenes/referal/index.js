@@ -5,12 +5,12 @@ import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Clipboard from "@react-native-community/clipboard"
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import MyButton from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import MyButton from '../../components/buttons'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class Referal extends Component {
   _isMounted = false
@@ -51,7 +51,7 @@ export default class Referal extends Component {
         
         <View style={styles.container_form}>
           <View style={{marginBottom: 10, alignItems: "center"}}>
-            <Image style={{ width: 200, height: 135, resizeMode: "contain" }} source={require('_assets/images/referal-page.png')} />
+            <Image style={{ width: 200, height: 135, resizeMode: "contain" }} source={require('../../assets/images/referal-page.png')} />
           </View>
           <Text style={{marginBottom: 10,marginTop: 10, textAlign: "center", fontSize: 16}}>Kode Referal Anda, silahkan bagikan ke teman atau sahabat terdekat Anda.</Text>
 
@@ -65,15 +65,15 @@ export default class Referal extends Component {
           <Text style={{marginBottom: 10,marginTop: 10, textAlign: "center", fontSize: 16, marginTop: 35, marginBottom: 20}}>Atau bagikan via</Text>
           <Row>
             <Col size={5} style={{alignItems: "flex-end"}}>
-              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('_assets/images/icon-whatsapp2.png')} />
+              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('../../assets/images/icon-whatsapp2.png')} />
               <Text style={{fontSize: 14}}>Whatsapp</Text>
             </Col>
             <Col size={4} style={{alignItems: "center"}}>
-              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('_assets/images/icon-instagram.png')} />
+              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('../../assets/images/icon-instagram.png')} />
               <Text style={{fontSize: 14}}>Instagram</Text>
             </Col>
             <Col size={5} style={{alignItems: "flex-start"}}>
-              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('_assets/images/icon-telegram.png')} />
+              <Image style={{ width: 56, height: 56, resizeMode: "contain" }} source={require('../../assets/images/icon-telegram.png')} />
               <Text style={{fontSize: 14}}>Telegram</Text>
             </Col>
           </Row>

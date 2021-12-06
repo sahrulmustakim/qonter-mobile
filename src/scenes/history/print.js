@@ -3,10 +3,10 @@ import { StyleSheet, AsyncStorage, StatusBar, Text, View, ScrollView, RefreshCon
 import { Grid, Col, Form, Item, Input, Label, Icon, Row, Badge, Button } from 'native-base'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography, Mixins } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography, Mixins } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 
-import { getProfile, formatPrice, getTotalTransfer } from '_utils/Global'
+import { getProfile, formatPrice, getTotalTransfer } from '../../utils/Global'
 import Moment from 'moment'
 import RNFetchBlob from 'rn-fetch-blob'
 // import {BluetoothManager,BluetoothEscposPrinter,BluetoothTscPrinter} from 'react-native-bluetooth-escpos-printer';

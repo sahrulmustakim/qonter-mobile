@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import CheckBox from '@react-native-community/checkbox'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice, getTotalTransfer } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice, getTotalTransfer } from '../../utils/Global'
 import SwipeablePanel from 'react-native-sheets-bottom'
 
 export default class ProductCheckout extends Component {
@@ -151,7 +151,7 @@ export default class ProductCheckout extends Component {
                 (this.state.payment_method_use == 'saldo') ? 
                 <Row style={{height: 30}}>
                   <Col size={1} style={{justifyContent: "center", alignItems: "flex-start"}}>
-                    <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                    <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                   </Col>
                   <Col size={5} style={{justifyContent: "center"}}>
                     <Text style={[styles.titleBoldBlack]}>Saldo</Text>
@@ -163,7 +163,7 @@ export default class ProductCheckout extends Component {
                 :
                 <Row style={{height: 30}}>
                   <Col size={1} style={{justifyContent: "center", alignItems: "flex-start"}}>
-                    <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                    <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                   </Col>
                   <Col size={5} style={{justifyContent: "center"}}>
                     <Text style={[styles.titleBoldBlack]}>Qonter</Text>
@@ -335,7 +335,7 @@ export default class ProductCheckout extends Component {
                 <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => this.select('saldo')}>
                   <Grid>
                     <Col size={2} style={{alignItems: "center", padding: 5, justifyContent: "center"}}>
-                      <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                      <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     </Col>
                     <Col size={10} style={{justifyContent: "center"}}>
                       <Text style={styles.labelItem}>Saldo</Text>
@@ -350,7 +350,7 @@ export default class ProductCheckout extends Component {
                 <TouchableOpacity style={{alignItems: "center", alignContent: "center"}} onPress={() => this.select('paylater')}>
                   <Grid>
                     <Col size={2} style={{alignItems: "center", padding: 5, justifyContent: "center"}}>
-                      <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                      <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                     </Col>
                     <Col size={10} style={{justifyContent: "center"}}>
                       <Text style={styles.labelItem}>Qonter</Text>

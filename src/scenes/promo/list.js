@@ -5,10 +5,10 @@ import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Clipboard from "@react-native-community/clipboard"
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
+import { POST, GET } from '../../services/ApiServices'
 
 export default class Promo extends Component {
   _isMounted = false
@@ -48,7 +48,7 @@ export default class Promo extends Component {
         <Grid style={{padding: 5}}>
           <Row>
             <Col size={1} style={{alignItems: "center", padding: 5}}>
-              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('_assets/images/stopwatch.png')} />
+              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('../../assets/images/stopwatch.png')} />
             </Col>
             <Col size={9} style={{paddingTop: 2}}>
               <Text style={styles.subtitle}>Periode Promo</Text>
@@ -57,7 +57,7 @@ export default class Promo extends Component {
           </Row>
           <Row style={{paddingTop: 10, paddingBottom: 5}}>
             <Col size={1} style={{alignItems: "center", padding: 5}}>
-              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('_assets/images/coupon.png')} />
+              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('../../assets/images/coupon.png')} />
             </Col>
             <Col size={6.5} style={{paddingTop: 2}}>
               <Text style={styles.subtitle}>Kode Promo</Text>

@@ -5,13 +5,14 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import Button from '_components/buttons'
-import ButtonColor from '_components/buttons/color'
-import HeaderBack from '_headers/back'
+import Colors from '../../styles/colors'
+import Typography from '../../styles/typography'
+import Button from '../../components/buttons/index'
+import ButtonColor from '../../components/buttons/color'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import ApiServices from '../../services/ApiServices'
+import global from '../../utils/Global'
 
 export default class Notification extends Component {
   _isMounted = false
@@ -29,12 +30,12 @@ export default class Notification extends Component {
     this._isMounted = true
 
     // GET USER
-    await getProfile().then((item) => {
+    await global.getProfile().then((item) => {
       this.setState({ userdata: item })
     })
 
     // NOTIFICATION
-    await GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
+    await ApiServices.GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
       // console.log(result)
       this.setState({ listdata: result })
     }).catch(error => {
@@ -48,9 +49,9 @@ export default class Notification extends Component {
 
   async read(item){
     // READ NOTIFICATION
-    await GET('update/notif/'+item.id, {}, true).then(async (result) => {
+    await ApiServices.GET('update/notif/'+item.id, {}, true).then(async (result) => {
       // RELOAD
-      await GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
+      await ApiServices.GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
         this.setState({ listdata: result })
         Actions.notification_detail({ item: item })
       }).catch(error => {
@@ -63,9 +64,9 @@ export default class Notification extends Component {
 
   async readall(){
     // READ ALL
-    await GET('user/notif/readall/'+this.state.userdata.id, {}, true).then(async (result) => {
+    await ApiServices.GET('user/notif/readall/'+this.state.userdata.id, {}, true).then(async (result) => {
       // RELOAD
-      await GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
+      await ApiServices.GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
         this.setState({ listdata: result })
         Actions.notification_detail({ item: item })
       }).catch(error => {
@@ -78,9 +79,9 @@ export default class Notification extends Component {
 
   async deleteall(){
     // DELETE ALL
-    await GET('user/notif/deleteall/'+this.state.userdata.id, {}, true).then(async (result) => {
+    await ApiServices.GET('user/notif/deleteall/'+this.state.userdata.id, {}, true).then(async (result) => {
       // RELOAD
-      await GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
+      await ApiServices.GET('user/notif/'+this.state.userdata.id, {}, true).then(async (result) => {
         this.setState({ listdata: result })
         Actions.notification_detail({ item: item })
       }).catch(error => {
@@ -123,7 +124,7 @@ export default class Notification extends Component {
             }
             scrollEnabled={true}>
             
-            <Grid>
+            {/* <Grid>
               <Row style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', marginBottom: 5, paddingLeft: 15, paddingTop: 10, paddingBottom: 10, paddingRight: 15}}>
                 <Col size={4} style={{alignItems: "flex-start", justifyContent: "center"}}>
                   <TouchableOpacity onPress={() => this.readall()}>
@@ -142,9 +143,9 @@ export default class Notification extends Component {
                     <Row key={key} style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', paddingBottom: 10, paddingTop: 5, marginBottom: 10}}>
                       <Col size={2} style={{justifyContent: "center", paddingLeft: 15}}>
                         { (unit.status != 'unread') ? 
-                          <Image style={{ width: 29, height: 29, resizeMode: "contain" }} source={require('_assets/images/notification-list.png')} />
+                          <Image style={{ width: 29, height: 29, resizeMode: "contain" }} source={require('../../assets/images/notification-list.png')} />
                           : 
-                          <Image style={{ width: 29, height: 29, resizeMode: "contain" }} source={require('_assets/images/notification-list-new.png')} />
+                          <Image style={{ width: 29, height: 29, resizeMode: "contain" }} source={require('../../assets/images/notification-list-new.png')} />
                         }
                       </Col>
                       <Col size={16} style={{justifyContent: "center"}}>
@@ -157,7 +158,7 @@ export default class Notification extends Component {
                   );
                 }) 
               }
-            </Grid>
+            </Grid> */}
 
           </ScrollView>
         </View>

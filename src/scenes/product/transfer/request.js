@@ -4,11 +4,11 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Picker, Row, Button } from '
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 import Modal from 'react-native-modal'
-import { getProfile, formatPrice } from '_utils/Global'
-import { POST, GET } from '_services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
+import { POST, GET } from '../../services/ApiServices'
 import Select2 from "react-native-select-two"
 
 export default class Wallet extends Component {

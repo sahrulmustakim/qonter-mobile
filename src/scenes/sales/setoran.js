@@ -4,13 +4,13 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Button, Spinner } from 
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import ButtonFill from '_components/buttons/fill'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import ButtonFill from '../../components/buttons/fill'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
 import { server_api } from '_configs/env'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 import ImagePicker from 'react-native-image-picker'
 import RNFetchBlob from 'rn-fetch-blob'
 import Select2 from "react-native-select-two"
@@ -180,7 +180,7 @@ export default class Setoran extends Component {
                         {
                           this.state.photo.uri == null || this.state.photo.uri == '' || typeof this.state.photo.uri === 'undefined' ? 
                           <TouchableOpacity onPress={() => this.changeFoto()}>
-                            <Image style={styles.avatar} source={require('_assets/images/setoran.png')}/>
+                            <Image style={styles.avatar} source={require('../../assets/images/setoran.png')}/>
                           </TouchableOpacity>
                           : 
                           <TouchableOpacity onPress={() => this.changeFoto()}>
@@ -231,7 +231,7 @@ export default class Setoran extends Component {
                     return (
                       <Row key={trxkey} style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', marginBottom: 10, paddingBottom: 10}}>
                         <Col size={2} style={{justifyContent: "center", alignItems: "center"}}>
-                          <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                          <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                         </Col>
                         <Col size={10} style={{justifyContent: "center"}}>
                           <Grid>
@@ -266,7 +266,7 @@ export default class Setoran extends Component {
                   return (
                     <Row key={key} style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', marginBottom: 10, paddingBottom: 10}}>
                       <Col size={2} style={{justifyContent: "center", alignItems: "center"}}>
-                        <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('_assets/images/dbcurrency.png')} />
+                        <Image style={{ width: 45, height: 45, resizeMode: "contain" }} source={require('../../assets/images/dbcurrency.png')} />
                       </Col>
                       <Col size={5} style={{justifyContent: "center"}}>
                         <Text style={[styles.titleBoldBlack]}>Nominal Setoran</Text>

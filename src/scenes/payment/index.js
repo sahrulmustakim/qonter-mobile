@@ -4,14 +4,14 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Spinner } from 'native-
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons/index'
-import ButtonFill from '_components/buttons/fill'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons/index'
+import ButtonFill from '../../components/buttons/fill'
 import Moment from "moment"
 import Clipboard from "@react-native-community/clipboard"
 import { server_api } from '_configs/env'
-import { POST, GET } from '_services/ApiServices'
+import { POST, GET } from '../../services/ApiServices'
 import ImagePicker from 'react-native-image-picker'
 import RNFetchBlob from 'rn-fetch-blob'
 
@@ -216,7 +216,7 @@ export default class Payment extends Component {
                   {
                     this.state.photo.uri == null || this.state.photo.uri == '' || typeof this.state.photo.uri === 'undefined' ? 
                     <TouchableOpacity onPress={() => this.changeFoto()}>
-                      <Image style={styles.avatar} source={require('_assets/images/setoran.png')}/>
+                      <Image style={styles.avatar} source={require('../../assets/images/setoran.png')}/>
                     </TouchableOpacity>
                     : 
                     <TouchableOpacity onPress={() => this.changeFoto()}>

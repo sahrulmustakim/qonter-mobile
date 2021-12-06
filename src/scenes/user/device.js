@@ -4,11 +4,11 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row, Spinner, Button, Text }
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
 import Moment from 'moment'
-import { POST, GET } from '_services/ApiServices'
-import { getProfile, formatPrice } from '_utils/Global'
+import { POST, GET } from '../../services/ApiServices'
+import { getProfile, formatPrice } from '../../utils/Global'
 
 export default class UserDevice extends Component {
   _isMounted = false
@@ -115,7 +115,7 @@ export default class UserDevice extends Component {
         {
           (this.state.loading == false && this.state.devices[0].list.length == 0) ?
           <View style={[styles.container_form, { padding: 15, alignItems: "center" }]}>
-            <Image style={{ width: 65, height: 65, resizeMode: "contain" }} source={require('_assets/images/question.png')} />
+            <Image style={{ width: 65, height: 65, resizeMode: "contain" }} source={require('../../assets/images/question.png')} />
             <Text style={[styles.labelForm, { textAlign: "center", paddingTop: 10 }]}>Data masih kosong{"\n"}Anda belum memiliki Device</Text>
           </View>
           : false
@@ -148,7 +148,7 @@ export default class UserDevice extends Component {
                       return (
                         <Row key={key2} style={{borderBottomWidth: 1, borderBottomColor: '#F1F3F6', marginBottom: 10, paddingBottom: 10}}>
                           <Col size={2} style={{justifyContent: "center", alignItems: "center"}}>
-                            <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('_assets/images/phone-network.png')} />
+                            <Image style={{ width: 25, height: 25, resizeMode: "contain" }} source={require('../../assets/images/phone-network.png')} />
                           </Col>
                           <Col size={5} style={{justifyContent: "center"}}>
                             <Text style={[styles.titleBoldGreen]}>{unit.imei}</Text>

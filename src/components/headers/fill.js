@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Alert, AsyncStorage, TouchableOpacity, Dimensions } from 'react-native'
 import { Body, Header, Icon, Left, Right, Title, Grid, Col } from 'native-base'
 import { Actions } from 'react-native-router-flux'
-import { Colors, Typography } from '_styles'
+import { Colors, Typography } from '../../styles'
 
 export default class HeaderFill extends Component {
   constructor(props) {

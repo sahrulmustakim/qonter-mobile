@@ -4,9 +4,9 @@ import { Grid, Col, Row, Icon } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import { POST, GET } from '_services/ApiServices'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import { POST, GET } from '../../services/ApiServices'
 
 export default class Product extends Component {
   _isMounted = false

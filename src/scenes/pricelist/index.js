@@ -4,10 +4,10 @@ import { Grid, Col, Form, Item, Input, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import { getProfile, formatPrice } from '_utils/Global'
-import { POST, GET } from '_services/ApiServices'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import { getProfile, formatPrice } from '../../utils/Global'
+import { POST, GET } from '../../services/ApiServices'
 import Select2 from "react-native-select-two"
 
 export default class PriceList extends Component {
@@ -75,37 +75,37 @@ export default class PriceList extends Component {
       // console.log(this.state.provider)
       if(this.state.product == '32'){
         if(this.state.provider == '15'){
-          await this.setState({ provider_logo: require('_assets/images/icon-axis.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-axis.png') })
         }else if(this.state.provider == '17'){
-          await this.setState({ provider_logo: require('_assets/images/icon-ceria.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-ceria.png') })
         }else if(this.state.provider == '24'){
-          await this.setState({ provider_logo: require('_assets/images/icon-indosat.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-indosat.png') })
         }else if(this.state.provider == '31'){
-          await this.setState({ provider_logo: require('_assets/images/icon-smartfren.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-smartfren.png') })
         }else if(this.state.provider == '33'){
-          await this.setState({ provider_logo: require('_assets/images/icon-three.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-three.png') })
         }else if(this.state.provider == '38'){
-          await this.setState({ provider_logo: require('_assets/images/icon-telkomsel.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-telkomsel.png') })
         }else if(this.state.provider == '66'){
-          await this.setState({ provider_logo: require('_assets/images/icon-xl.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-xl.png') })
         }else{
-          await this.setState({ provider_logo: require('_assets/images/dbcurrency.png') })
+          await this.setState({ provider_logo: require('../../assets/images/dbcurrency.png') })
         }
       }else{
         if(this.state.provider == '4'){
-          await this.setState({ provider_logo: require('_assets/images/icon-axis.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-axis.png') })
         }else if(this.state.provider == '35'){
-          await this.setState({ provider_logo: require('_assets/images/icon-indosat.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-indosat.png') })
         }else if(this.state.provider == '54'){
-          await this.setState({ provider_logo: require('_assets/images/icon-smartfren.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-smartfren.png') })
         }else if(this.state.provider == '60'){
-          await this.setState({ provider_logo: require('_assets/images/icon-three.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-three.png') })
         }else if(this.state.provider == '61'){
-          await this.setState({ provider_logo: require('_assets/images/icon-telkomsel.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-telkomsel.png') })
         }else if(this.state.provider == '67'){
-          await this.setState({ provider_logo: require('_assets/images/icon-xl.png') })
+          await this.setState({ provider_logo: require('../../assets/images/icon-xl.png') })
         }else{
-          await this.setState({ provider_logo: require('_assets/images/dbcurrency.png') })
+          await this.setState({ provider_logo: require('../../assets/images/dbcurrency.png') })
         }
       }
       await this.setState({ listdata: result })

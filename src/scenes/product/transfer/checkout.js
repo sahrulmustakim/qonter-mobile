@@ -4,12 +4,12 @@ import { Grid, Col, Form, Item, Label, Icon, Row } from 'native-base'
 import { Actions } from 'react-native-router-flux'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Toast from 'react-native-easy-toast'
-import { Colors, Typography } from '_styles'
-import HeaderBack from '_headers/back'
-import Button from '_components/buttons'
+import { Colors, Typography } from '../../styles'
+import HeaderBack from '../../components/headers/back'
+import Button from '../../components/buttons'
 import CheckBox from '@react-native-community/checkbox'
-import { getProfile, formatPrice, getTotalTransfer } from '_utils/Global'
-import { POST, GET } from '_services/ApiServices'
+import { getProfile, formatPrice, getTotalTransfer } from '../../utils/Global'
+import { POST, GET } from '../../services/ApiServices'
 
 export default class ProductCheckout extends Component {
   _isMounted = false
@@ -267,7 +267,7 @@ export default class ProductCheckout extends Component {
         <View style={styles.container_bottom}>
           <Row style={{margin: 20, backgroundColor: '#F1F4F9', padding: 5, borderRadius: 8}}>
             <Col size={1} style={{justifyContent: "center", alignItems: "center"}}>
-              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('_assets/images/coupon-gray.png')} />
+              <Image style={{ width: 24, height: 24, resizeMode: "contain" }} source={require('../../assets/images/coupon-gray.png')} />
             </Col>
             {
               (typeof this.state.promodata.grand_total !== 'undefined' && parseInt(this.state.promodata.grand_total) > 0) ? 
